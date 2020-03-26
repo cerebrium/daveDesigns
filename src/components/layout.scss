@@ -1,0 +1,242 @@
+/********************** scss stuff ********************************/
+%overall-prototype {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 5vw 95vw;
+    grid-template-rows: 5vh 95vh;
+    grid-template-areas: 
+    "navbar navBar"
+    "mainContent mainContent"
+    ;
+    overflow: scroll;
+}
+
+%center-text {
+    text-align: center;
+}
+
+%remove-decoration {
+    text-decoration: none;
+    color: rgb(99, 97, 97);
+    font-size: 1.5em;
+}
+
+%remove-decoration:hover {
+    color: rgb(129, 127, 127);
+    font-size: 1.55em;
+}
+
+%center-things {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/********************** nav bar ********************************/
+
+.navBar {
+    position: fixed;
+    top: 1vh;
+    left: 1vw;
+    display: flex;
+    flex-direction: column;
+    width: 8vw;
+    height: 3vh;
+    grid-area: navbar;
+    z-index: 1;
+}
+
+.line {
+    background-color: rgb(255, 255, 255);
+    height: .6vh;
+    width: 2vw;
+    margin-bottom: 1.5px;
+}
+
+.dropDownContent {
+    display: none;
+}
+
+.navBar:hover .dropDownContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(247, 242, 242);
+    padding: 1%;
+}
+
+.linkStyle {
+    @extend %center-text;
+    width: 8vw;
+}
+
+.links {
+    @extend %remove-decoration;
+}
+
+/********************** home page ********************************/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'ubuntu';
+    color: white;
+}
+
+.overallDiv {
+    @extend %overall-prototype;
+    max-height: 100vh;
+    background-image: url('./ron-urazov.jpg');
+    background-size: cover;
+}
+
+.content {
+    grid-area: mainContent;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 10% 80%;
+    grid-template-areas: 
+    "titleScroll title"
+    "scrollBar selectedPhoto"
+    ;
+}
+
+.contentTwo {
+    grid-area: mainContent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: 100vh;
+}
+
+.titles {
+    font-size: 3em;
+}
+
+.daveClass {
+    width: 25vw;
+}
+
+/********************** Rolling Pin page ********************************/
+.screenImageColumn{
+    grid-area: scrollBar;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 5%;
+    overflow: scroll;
+    background-color: rgb(253, 255, 255);
+}
+
+.titleProducts {
+    grid-area: title;
+    @extend %center-things;
+}
+
+.titleScroll {
+    grid-area: titleScroll;
+    @extend %center-things;
+}
+
+.imageContainer {
+    width: 70%;
+    opacity: .8;
+    margin: 3%;
+}
+
+.imageContainerTwo {
+    width: 50%;
+    opacity: .8;
+    margin: 3%;
+}
+
+.innerSelector {
+    text-align: center;
+    margin: 0 auto;
+    background-color: grey;
+    width: 100%;
+    color: white;
+}
+
+.selectors:hover {
+    color: rgb(141, 221, 231);
+    font-size: 1.1em;
+}
+
+.imageContainer:hover {
+    animation-name: imageEffect;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+.selectedPhoto {
+    grid-area: selectedPhoto;
+    @extend %center-things;
+}
+
+.selectedImage {
+    animation-name: selectedImage;
+    animation-duration: 1s;
+    animation-fill-mode: forwards
+}
+.selectedImageSizing {
+    min-width: 40vw;
+}
+
+@keyframes imageEffect {
+    0% {
+
+    }
+    100% {
+        box-shadow: 7px 7px 7px rgb(160, 160, 160);
+        opacity: 1;
+        width: 80%;
+    }
+}
+
+@keyframes selectedImage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-1vh);
+        opacity: 1;
+    }
+}
+/********************************************** Contact me Page *************************************/
+.myForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.inputBars {
+    width: 15vw;
+    margin-top: 2%;
+}
+
+.myTextArea {
+    width: 40vw;
+    height: 30vh;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+button {
+    width: 10vw;
+    height: 5vh;
+    margin-bottom: 7%;
+    background-color: rgba(255, 251, 251, 0);
+    border: 3px solid rgb(252, 252, 252);
+    border-radius: 35%;
+    color: rgb(252, 252, 252);
+}
+
+button:hover {
+    box-shadow: 5px 5px 5px white;
+}
